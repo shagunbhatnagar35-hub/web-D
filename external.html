@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Navbar</title>
+
+<style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    background:#111;
+    color:white;
+    position:relative;
+}
+
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#ff6f00;
+    cursor:pointer;
+}
+
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+.nav-links li a{
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.nav-links li a:hover{
+    color:#ff6f00;
+}
+
+
+.search-box{
+    display:flex;
+    align-items:center;
+    background:white;
+    padding:5px 10px;
+    border-radius:20px;
+}
+
+.search-box input{
+    border:none;
+    outline:none;
+    padding:5px;
+}
+
+.search-box i{
+    color:#555;
+}
+
+
+.cart{
+    position:relative;
+    cursor:pointer;
+}
+
+.cart i{
+    font-size:20px;
+}
+
+.cart span{
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    background:red;
+    color:white;
+    font-size:12px;
+    padding:2px 6px;
+    border-radius:50%;
+}
+
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+
+.login-btn{
+    padding:6px 15px;
+    border:none;
+    background:#ff6f00;
+    color:white;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    background:#ff8f33;
+}
+
+
+.hamburger{
+    display:none;
+    font-size:22px;
+    cursor:pointer;
+}
+
+
+@media(max-width:900px){
+
+    .nav-links,
+    .search-box,
+    .login-btn{
+        display:none;
+    }
+
+    .hamburger{
+        display:block;
+    }
+
+    .nav-links.active{
+        display:flex;
+        flex-direction:column;
+        position:absolute;
+        top:70px;
+        left:0;
+        width:100%;
+        background:#222;
+        padding:20px 0;
+        text-align:center;
+    }
+
+    .nav-links.active li{
+        margin:15px 0;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">ShopEasy</div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Deals</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" placeholder="Search products...">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="cart">
+            <i class="fas fa-shopping-cart"></i>
+            <span>3</span>
+        </div>
+
+        <button class="login-btn">Login</button>
+
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
